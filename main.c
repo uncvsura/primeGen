@@ -1,0 +1,36 @@
+#include "master.h"
+#include "EratBoolArray.c"
+#include "Naive.c"
+#include "EBAMinorOptimization.c"
+
+int main(void){
+
+    unsigned long num;
+    bool *primes = malloc(num-1);
+
+    int power;
+    printf("Enter power of 10:\n");
+    scanf("%d", &power);
+
+    num = pow(10,power);
+
+    printf("Calculating...\n");
+    clock_t start = clock();
+    
+    // naive(num);
+    // unsigned long p_count = priminatorv2(primes, num);
+    unsigned long p_count = priminatorv3(primes, num);
+
+    printf("\u03C0(%lu) = %lu\n", num, p_count);
+
+    clock_t end = clock();
+    double time = ((double) (end - start))/CLOCKS_PER_SEC;
+
+    printf("Time taken: %.2f seconds\n", time);
+
+    free(primes);
+    primes = NULL;
+
+    return 0;
+    
+}
