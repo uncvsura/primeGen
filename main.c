@@ -11,7 +11,7 @@
 int main(void){
 
     unsigned long num;
-    bool *primes = calloc(num-1,1);
+    bool *primes = malloc(num-1);
 
     int power;
     printf("Enter power of 10:\n");
