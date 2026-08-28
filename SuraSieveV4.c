@@ -25,12 +25,13 @@ unsigned long priminatorv7(bool *primes, unsigned long n){
                 
                 while(k*val<n+1){
                     primes[val*k-2]=true;
+                    if(val>3&&k%3==1){
+                        k+=2;
+                    }
                     k += val>2 ? 2:1;
+                    
                 }
-
             }
-
-
         }
         i++;
     }
