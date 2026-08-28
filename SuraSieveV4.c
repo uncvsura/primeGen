@@ -5,8 +5,10 @@ unsigned long priminatorv7(bool *primes, unsigned long n){
     unsigned long i = 0;
 
     unsigned long size = n-1;
+    int j;
 
     unsigned long prev_p;
+    bool incr = true;
 
     while(i<size){
 
@@ -17,24 +19,17 @@ unsigned long priminatorv7(bool *primes, unsigned long n){
 
             // printf("%lu\n", val);
 
-            
-
             if(val<sqrt(n)+1){
 
                 unsigned long k = val;
                 
                 while(k*val<n+1){
                     primes[val*k-2]=true;
-                    if(val>2){
-                        k+=2;
-                    }else{
-                        k++;
-                    }
-                    
+                    k += val>2 ? 2:1;
                 }
 
-                prev_p = val;
             }
+
 
         }
         i++;
