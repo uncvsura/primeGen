@@ -14,7 +14,7 @@ unsigned long priminatorv5(bool *primes, unsigned long n){
 
             unsigned long val = i+2;
             p_count++;
-            // printf("%lu\n", val);
+            printf("%lu\n", val);
             unsigned long k = val;
 
             if(val<sqrt(n)+1){

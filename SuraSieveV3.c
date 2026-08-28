@@ -15,9 +15,13 @@ unsigned long priminatorv6(bool *primes, unsigned long n){
             unsigned long val = i+2;
             p_count++;
 
-            unsigned long k = val;
+            // printf("%lu\n", val);
+
+            
 
             if(val<sqrt(n)+1){
+
+                unsigned long k = val;
 
                 unsigned long thresh = n/pow(val,2);
                 
@@ -34,6 +38,7 @@ unsigned long priminatorv6(bool *primes, unsigned long n){
                     k++;
                     
                 }
+
             }
 
         }

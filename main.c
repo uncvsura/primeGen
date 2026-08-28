@@ -2,11 +2,16 @@
 #include "EratBoolArray.c"
 #include "Naive.c"
 #include "EBAMinorOptimization.c"
+#include "SuraSieveV1.c"
+#include "SuraSieveV2.c"
+#include "SuraSieveV3.c"
+#include "SuraSieveV4.c"
+
 
 int main(void){
 
     unsigned long num;
-    bool *primes = malloc(num-1);
+    bool *primes = calloc(num-1,1);
 
     int power;
     printf("Enter power of 10:\n");
@@ -14,12 +19,12 @@ int main(void){
 
     num = pow(10,power);
 
+    unsigned long p_count;
+
     printf("Calculating...\n");
     clock_t start = clock();
     
-    // naive(num);
-    // unsigned long p_count = priminatorv2(primes, num);
-    unsigned long p_count = priminatorv3(primes, num);
+    p_count = priminatorv7(primes,num);
 
     printf("\u03C0(%lu) = %lu\n", num, p_count);
 
@@ -30,6 +35,7 @@ int main(void){
 
     free(primes);
     primes = NULL;
+
 
     return 0;
     
