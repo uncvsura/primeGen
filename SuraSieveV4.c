@@ -26,8 +26,8 @@ unsigned long priminatorv7(bool *primes, unsigned long n){
                 
                 while(k*val<n+1){
                     primes[val*k-2]=true;
-                    // if(val>7&&k%210==1){k+=2;}
-                    // if(val>5&&k%30==1){k+=2;}
+                    if(val>7&&k%210==1){k+=2;}
+                    if(val>5&&k%30==1){k+=2;}
                     if(val>3&&k%6==1){k+=2;}
                     k += val>2 ? 2:1;
                     
