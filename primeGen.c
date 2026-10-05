@@ -23,11 +23,16 @@ int main(void){
 
     unsigned long p_count;
 
+    int print;
+
+    printf("Print? 1(Yes) 0(No):\n");
+    scanf("%d", &print);
+
     printf("Calculating...\n");
     
-    p_count = priminatorv8(primes,num);
+    p_count = priminatorv8(primes,num,print);
 
-    printf("\u03C0(%lu) = %lu\n", num, p_count);
+    printf("\n\u03C0(%lu) = %lu\n", num, p_count);
 
 
     free(primes);

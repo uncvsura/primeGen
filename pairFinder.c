@@ -1,15 +1,19 @@
 #include "master.h"
 #include "SuraSieveV5.c"
 
-unsigned long pairFind(unsigned long even){
+unsigned long pairFind(unsigned long even, bool print){
 
     unsigned long size = even+1;
     unsigned long pairCount = 0;
 
     bool *primes = malloc(size);
 
-    priminatorv8(primes,size);
+    printf("Generating primes...\n");
 
+    priminatorv8(primes,size,false);
+
+    printf("Finding pairs...\n");
+    
     unsigned long i = 0;
 
     while(i<size/2){
@@ -20,7 +24,8 @@ unsigned long pairFind(unsigned long even){
 
             if(!primes[even-val-2]){
 
-                printf("(%lu,%lu)\n",val,even-val);
+                if(print){printf("(%lu,%lu)\n",val,even-val);}
+                
                 pairCount++;
 
             }
@@ -41,7 +46,14 @@ int main(void){
     printf("Enter even number:\n");
     scanf("%lu", &num);
 
-    unsigned long pairCount = pairFind(num);
+    int print;
+
+    printf("Print? 1(Yes) 0(No):\n");
+    scanf("%d", &print);
+
+    printf("Calculating...\n");
+
+    unsigned long pairCount = pairFind(num,print);
 
     printf("G(%lu): %lu\n",num,pairCount);
 

@@ -1,6 +1,6 @@
 #include "master.h"
 
-unsigned long priminatorv8(bool *primes, unsigned long n){
+unsigned long priminatorv8(bool *primes, unsigned long n, bool print){
 
     unsigned long p_count = 0;
     unsigned long i = 0;
@@ -14,7 +14,8 @@ unsigned long priminatorv8(bool *primes, unsigned long n){
             unsigned long val = i+2;
             p_count++;
 
-            printf("%lu ",val);
+            if(print){printf("%lu ",val);}
+
 
             if(val<sqrt(n)+1){
 
