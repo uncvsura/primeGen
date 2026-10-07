@@ -1,12 +1,12 @@
-#include "master.h"
+#include "external.h"
 
-unsigned long priminatorv4(bool *primes, bool *helper, unsigned long n){
+unsigned long priminatorv5(bool *primes, unsigned long n){
 
     unsigned long p_count = 0;
     unsigned long i = 0;
 
     unsigned long size = n-1;
-    // unsigned long helper_size = size/2+1;
+
 
     while(i<size){
 
@@ -14,23 +14,20 @@ unsigned long priminatorv4(bool *primes, bool *helper, unsigned long n){
 
             unsigned long val = i+2;
             p_count++;
-            // printf("%lu\n", val);
+            printf("%lu\n", val);
             unsigned long k = val;
 
             if(val<sqrt(n)+1){
                 
                 while(k*val<n+1){
-                    
                     if(!primes[k-2]){
-                        if(k*val<n/val+1){
-                            helper[k*val-2]=true;
-                        }else{
+                        if(k*val>n/val){
+                            // printf("%lu\n", k*val-2);
                             primes[k*val-2]=true;
                         }
-                    }
-                    
-                    if(helper[k-2]){
-                        primes[k-2]=true;
+                        if(k%val==0){
+                            primes[k-2]=true;
+                        }
                     }
 
                     k++;

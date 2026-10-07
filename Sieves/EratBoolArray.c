@@ -1,4 +1,4 @@
-#include "master.h"
+#include "external.h"
 
 unsigned long priminatorv2(bool *arr, unsigned long n){
 

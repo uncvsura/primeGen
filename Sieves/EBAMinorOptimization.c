@@ -1,4 +1,4 @@
-#include "master.h"
+#include "external.h"
 
 unsigned long priminatorv3(bool *primes, unsigned long n){
 

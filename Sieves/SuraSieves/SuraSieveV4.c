@@ -1,12 +1,15 @@
-#include "master.h"
+#include "external.h"
 
-unsigned long priminatorv6(bool *primes, unsigned long n){
-
+unsigned long priminatorv7(bool *primes, unsigned long n){
     unsigned long p_count = 0;
     unsigned long i = 0;
 
     unsigned long size = n-1;
+    int j;
 
+    unsigned long prev_p;
+    bool incr = true;
+    unsigned long product = 1;
 
     while(i<size){
 
@@ -20,29 +23,21 @@ unsigned long priminatorv6(bool *primes, unsigned long n){
             if(val<sqrt(n)+1){
 
                 unsigned long k = val;
-
-                unsigned long thresh = n/pow(val,2);
                 
                 while(k*val<n+1){
-                    if(!primes[k-2]){
-                        if(k>thresh){
-                            primes[k*val-2]=true;
-                        }
-                        if(k%val==0){
-                            primes[k-2]=true;
-                        }
-                    }
-
-                    k++;
+                    primes[val*k-2]=true;
+                    if(val>7&&k%210==1){k+=2;}
+                    if(val>5&&k%30==1){k+=2;}
+                    if(val>3&&k%6==1){k+=2;}
+                    k += val>2 ? 2:1;
                     
                 }
-
             }
 
+            product *= val;
         }
         i++;
     }
 
     return p_count;
 }
-

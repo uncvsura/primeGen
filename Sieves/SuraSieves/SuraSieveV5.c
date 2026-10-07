@@ -1,25 +1,25 @@
-#include "master.h"
+#include "external.h"
 
-unsigned long priminatorv8(bool *primes, unsigned long n, bool print){
+uint32_t priminatorv8(bool *primes, uint32_t n, bool print){
 
-    unsigned long p_count = 0;
-    unsigned long i = 0;
+    uint32_t p_count = 0;
+    uint32_t i = 0;
 
-    unsigned long size = n-1;
+    uint32_t size = n-1;
 
     while(i<size){
 
         if(!primes[i]){
 
-            unsigned long val = i+2;
+            uint32_t val = i+2;
             p_count++;
 
-            if(print){printf("%lu ",val);}
+            if(print){printf("%d ",val);}
 
 
             if(val<sqrt(n)+1){
 
-                unsigned long k = val;
+                uint32_t k = val;
                 if(val==2){
                     while(k<<1<n+1){
                         primes[(k<<1)-2]=true;
