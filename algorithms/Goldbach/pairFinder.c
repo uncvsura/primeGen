@@ -1,4 +1,4 @@
-#include "header/algos.h"
+#include "algos.h"
 
 uint32_t pairFind(uint32_t even, bool print){
 
@@ -7,15 +7,11 @@ uint32_t pairFind(uint32_t even, bool print){
 
     bool *primes = malloc(size);
 
-    printf("Generating primes...\n");
-
     priminatorv8(primes,size,false);
-
-    printf("Finding pairs...\n");
     
     uint32_t i = 0;
 
-    while(i<size/2){
+    while(i+2<even/2){
 
         if(!primes[i]){
 

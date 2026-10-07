@@ -1,4 +1,4 @@
-#include "external.h"
+#include "algos.h"
 
 uint32_t priminatorv8(bool *primes, uint32_t n, bool print){
 
