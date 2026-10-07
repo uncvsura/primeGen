@@ -2,16 +2,20 @@ CC     = gcc
 CFLAGS = -Iheader -Wall -Wextra
 LDLIBS = -lm
 
-primeGen: main/primeGenMain.c algorithms/Sieves/SuraSieves/SuraSieveV5.c
-	$(CC) $(CFLAGS) $^ -o $@
+SIEVE_DEPS = algorithms/Sieves/SuraSieves/SuraSieveV5.c
+GOLD_DEPS = $(SIEVE_DEPS) algorithms/Goldbach/pairFinder.c
+COMET_DEPS = $(GOLD_DEPS) algorithms/Goldbach/cometMaker.c
 
-pairFind: main/pairFindMain.c algorithms/Goldbach/pairFinder.c algorithms/Sieves/SuraSieves/SuraSieveV5.c
-	$(CC) $(CFLAGS) $^ -o $@
+primeGen: main/primeGenMain.c $(SIEVE_DEPS)
+	$(CC) $(CFLAGS) $^ -o $@ $(LDLIBS)
 
-cometMake: main/cometMain.c algorithms/Goldbach/pairFinder.c algorithms/Sieves/SuraSieves/SuraSieveV5.c algorithms/Goldbach/cometMaker.c
-	$(CC) $(CFLAGS) $^ -o $@
+pairFind: main/pairFindMain.c $(GOLD_DEPS)
+	$(CC) $(CFLAGS) $^ -o $@ $(LDLIBS)
+
+cometMake: main/cometMain.c $(COMET_DEPS)
+	$(CC) $(CFLAGS) $^ -o $@ $(LDLIBS)
 
 clean:
-	rm -f primeGen pairFind cometmake
+	rm -f primeGen pairFind cometMake
 
 .PHONY: clean

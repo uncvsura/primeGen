@@ -11,7 +11,7 @@ uint32_t pairFind(uint32_t even, bool print){
     
     uint32_t i = 0;
 
-    while(i+2<even/2){
+    while(i+2<=even/2){
 
         if(!primes[i]){
 
