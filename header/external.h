@@ -1,6 +1,6 @@
-#ifndef MASTER_H
+#ifndef EXTERNAL_H
 
-#define MASTER_H
+#define EXTERNAL_H
 
 #include <stdio.h>
 #include <stdbool.h>
