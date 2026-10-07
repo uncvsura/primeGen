@@ -12,8 +12,11 @@ void cometMaker(uint32_t n){
         uint32_t pair = pairFind(primes,even,0);
 
         printf("%d %d\n",even,pair);
-        
+
         even+=2;
     }
+
+    free(primes);
+    primes=NULL;
 }
 
