@@ -5,7 +5,7 @@
 
 uint32_t priminatorv8(bool *primes, uint32_t n, bool print);
 
-uint32_t pairFind(uint32_t even, bool print);
+uint32_t pairFind(bool *primes, uint32_t even, bool print);
 
 void cometMaker(uint32_t n);
 

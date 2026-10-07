@@ -1,13 +1,8 @@
 #include "algos.h"
 
-uint32_t pairFind(uint32_t even, bool print){
+uint32_t pairFind(bool *primes, uint32_t even, bool print){
 
-    uint32_t size = even+1;
     uint32_t pairCount = 0;
-
-    bool *primes = malloc(size);
-
-    priminatorv8(primes,size,false);
     
     uint32_t i = 0;
 
@@ -27,9 +22,6 @@ uint32_t pairFind(uint32_t even, bool print){
         }
         i++;
     }
-
-    free(primes);
-    primes = NULL;
 
     return pairCount;
 }
