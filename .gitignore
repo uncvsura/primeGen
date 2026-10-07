@@ -1,2 +1,4 @@
-build
+build/
+primeGen
+pairFind
 .DS_Store
