@@ -6,14 +6,14 @@ void cometMaker(uint32_t n){
 
     priminatorv8(primes,n,false);
 
-    uint32_t even=4;
+    #pragma omp parallel for num_threads(10)
 
-    while(even<=n){
+    for(uint32_t even=4; even <= n; even+=2){
+
         uint32_t pair = pairFind(primes,even,0);
 
         printf("%d %d\n",even,pair);
 
-        even+=2;
     }
 
     free(primes);

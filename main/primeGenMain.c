@@ -25,7 +25,6 @@ int main(void){
 
     printf("\n\u03C0(%d) = %d\n", num, p_count);
 
-
     free(primes);
     primes = NULL;
 

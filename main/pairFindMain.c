@@ -9,14 +9,15 @@ int main(void){
 
     bool *primes = malloc(num+1);
 
+    printf("Calculating...\n");
+
     priminatorv8(primes,num,false);
 
     int print;
 
     printf("Print? 1(Yes) 0(No):\n");
     scanf("%d", &print);
-
-    printf("Calculating...\n");
+    
 
     uint32_t pairCount = pairFind(primes, num,print);
 

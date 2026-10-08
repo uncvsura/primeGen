@@ -3,14 +3,12 @@
 uint32_t pairFind(bool *primes, uint32_t even, bool print){
 
     uint32_t pairCount = 0;
-    
-    uint32_t i = 0;
 
-    while(i+2<=even/2){
+    // #pragma omp parallel for num_threads(4)
 
-        if(!primes[i]){
+    for(uint32_t val = 2; val <= even/2; val++){
 
-            uint32_t val = i + 2;
+        if(!primes[val-2]){
 
             if(!primes[even-val-2]){
 
@@ -20,7 +18,6 @@ uint32_t pairFind(bool *primes, uint32_t even, bool print){
 
             }
         }
-        i++;
     }
 
     return pairCount;
