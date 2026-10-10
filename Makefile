@@ -6,6 +6,10 @@ LDLIBS  = -lm -lomp
 SIEVE_DEPS = algorithms/Sieves/SuraSieves/SuraSieveV5.c
 GOLD_DEPS = $(SIEVE_DEPS) algorithms/Goldbach/pairFinder.c
 COMET_DEPS = $(GOLD_DEPS) algorithms/Goldbach/cometMaker.c
+BITSIEVE_DEPS = algorithms/Sieves/SSieveBitArray.c
+
+bitSieve: main/bitSieveMain.c $(BITSIEVE_DEPS)
+	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@ $(LDLIBS)
 
 primeGen: main/primeGenMain.c $(SIEVE_DEPS)
 	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@ $(LDLIBS)
@@ -17,6 +21,6 @@ cometMake: main/cometMain.c $(COMET_DEPS)
 	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@ $(LDLIBS)
 
 clean:
-	rm -f primeGen pairFind cometMake
+	rm -f primeGen pairFind cometMake bitSieve
 
 .PHONY: clean

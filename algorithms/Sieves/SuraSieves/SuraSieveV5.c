@@ -14,7 +14,7 @@ uint32_t priminatorv8(bool *primes, uint32_t n, bool print){
             uint32_t val = i+2;
             p_count++;
 
-            if(print){printf("%d ",val);}
+            if(print){printf("%d\n",val);}
 
 
             if(val<sqrt(n)+1){
