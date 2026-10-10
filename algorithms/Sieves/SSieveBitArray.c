@@ -61,7 +61,6 @@ uint64_t priminatorv9(uint8_t *primes, uint64_t n, bool print){
                 prime = (size-1)*8+p;
 
                 if(prime<=n){
-                    if(print){printf("%llu\n", prime);}
                     p_count++;
                 }
             }
