@@ -46,7 +46,6 @@ uint64_t priminatorv9(uint8_t *primes, uint64_t n, bool print){
 
                     }
 
-                    if(print){printf("%llu\n", prime);}
                     p_count++;
                 }
             }
@@ -67,6 +66,22 @@ uint64_t priminatorv9(uint8_t *primes, uint64_t n, bool print){
                 }
             }
         }
+    }
+
+    if(print){
+        for(uint64_t i = 0; i < size-1; i++){
+            if(primes[i]){
+
+                for(int p = 0; p < 8; p++){
+    
+                    if(checkBit(&primes[i],p)){
+    
+                        prime = i*8+p;
+                        printf("%llu\n", prime);
+                    }
+                }
+        }
+    }
     }
 
     return p_count;
