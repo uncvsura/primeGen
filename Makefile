@@ -17,10 +17,10 @@ primeGen: main/primeGenMain.c $(SIEVE_DEPS)
 pairFind: main/pairFindMain.c $(GOLD_DEPS)
 	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@ $(LDLIBS)
 
-cometMake: main/cometMain.c $(COMET_DEPS)
+comet: main/cometMain.c $(COMET_DEPS)
 	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@ $(LDLIBS)
 
 clean:
-	rm -f primeGen pairFind cometMake bitSieve
+	rm -f primeGen pairFind comet bitSieve
 
 .PHONY: clean

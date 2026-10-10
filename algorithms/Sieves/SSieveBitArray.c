@@ -24,7 +24,7 @@ uint64_t priminatorv9(uint8_t *primes, uint64_t n, bool print){
 
                 if(checkBit(&primes[i],p)){
 
-                    prime = i*8+p;
+                    prime = (i<<3)+p;
 
                     if(prime<sqrt(n)+1){
 
@@ -34,13 +34,13 @@ uint64_t priminatorv9(uint8_t *primes, uint64_t n, bool print){
 
                             for(uint64_t k = prime; k < max_bound; k++){
 
-                                clearBit(&primes[prime*k/8],(prime*k)%8);
+                                clearBit(&primes[k>>2],(k<<1)&0x7);
                             }
                         }else{
 
                             for(uint64_t k = prime; k < max_bound; k+=2){
 
-                                clearBit(&primes[prime*k/8],(prime*k)%8);
+                                clearBit(&primes[(prime*k)>>3],(prime*k)&0x7);
                             }
                         }
 
