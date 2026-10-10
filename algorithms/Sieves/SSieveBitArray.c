@@ -34,13 +34,13 @@ uint64_t priminatorv9(uint8_t *primes, uint64_t n, bool print){
 
                             for(uint64_t k = prime; k < max_bound; k++){
 
-                                clearBit(&primes[(int)prime*k/8],(prime*k)%8);
+                                clearBit(&primes[prime*k/8],(prime*k)%8);
                             }
                         }else{
 
                             for(uint64_t k = prime; k < max_bound; k+=2){
 
-                                clearBit(&primes[(int)prime*k/8],(prime*k)%8);
+                                clearBit(&primes[prime*k/8],(prime*k)%8);
                             }
                         }
 

@@ -1,5 +1,5 @@
 CC      = gcc
-CFLAGS  = -Iheader -Wall -Wextra -Xpreprocessor -fopenmp -I$(shell brew --prefix libomp)/include
+CFLAGS  = -Iheader -O3 -Wall -Wextra -Xpreprocessor -fopenmp -I$(shell brew --prefix libomp)/include
 LDFLAGS = -L$(shell brew --prefix libomp)/lib
 LDLIBS  = -lm -lomp
 
