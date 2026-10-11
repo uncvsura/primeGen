@@ -9,5 +9,6 @@
 #include <time.h>
 #include <omp.h>
 #include <string.h>
+#include <stdint.h>
 
 #endif
