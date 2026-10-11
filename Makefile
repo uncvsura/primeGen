@@ -10,14 +10,26 @@ else
     endif
 endif
 
-CC      = gcc-16
-CFLAGS  = -Iheader -O3 -Wall -Wextra -Xpreprocessor -fopenmp
+CC      = gcc
+CFLAGS  = -Iheader -O3 -Wall -Wextra
+LDFLAGS =
+LDLIBS  = -lm
+
 ifeq ($(DETECTED_OS),macOS)
-	LDFLAGS = -L/opt/homebrew/opt/libomp/lib
+
+    LIBOMP_PREFIX := $(shell brew --prefix libomp 2>/dev/null)
+    ifneq ($(LIBOMP_PREFIX),)
+        CFLAGS  += -Xpreprocessor -fopenmp -I$(LIBOMP_PREFIX)/include
+        LDFLAGS += -L$(LIBOMP_PREFIX)/lib
+        LDLIBS  += -lomp
+    else
+        CFLAGS  += -Xpreprocessor -fopenmp
+        LDLIBS  += -lomp
+    endif
 else
-	LDFLAGS = 
+    # Linux / other Unix: GCC or Clang with libgomp
+    CFLAGS += -fopenmp
 endif
-LDLIBS  = -lm -lomp
 
 SIEVE_DEPS = algorithms/Sieves/SuraSieves/SuraSieveV5.c
 GOLD_DEPS = $(SIEVE_DEPS) algorithms/Goldbach/pairFinder.c
