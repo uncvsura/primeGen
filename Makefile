@@ -27,7 +27,6 @@ ifeq ($(DETECTED_OS),macOS)
         LDLIBS  += -lomp
     endif
 else
-    # Linux / other Unix: GCC or Clang with libgomp
     CFLAGS += -fopenmp
 endif
 
