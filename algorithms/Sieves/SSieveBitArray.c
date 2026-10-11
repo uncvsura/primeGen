@@ -16,7 +16,11 @@ uint64_t priminatorv9(uint8_t *primes, uint64_t n, bool print){
 
     uint64_t size = (n/8)+1;
 
-    for(uint64_t i = 0; i < (sqrt(n)/8) + 1; i++){
+    uint64_t mult_bound = (int)(sqrt(n)/8) + 1;
+
+    uint64_t count_bound = size-1;
+
+    for(uint64_t i = 0; i < mult_bound; i++){
 
         if(primes[i]){
 
@@ -48,8 +52,7 @@ uint64_t priminatorv9(uint8_t *primes, uint64_t n, bool print){
         }
     }
 
-    for(uint64_t i = (sqrt(n)/8)+2; i < size-1; i++){
-
+    for(uint64_t i = mult_bound; i < count_bound; i++){
         if(primes[i]){
 
             for(int p = 0; p < 8; p++){
