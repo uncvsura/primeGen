@@ -16,7 +16,7 @@ uint64_t priminatorv9(uint8_t *primes, uint64_t n, bool print){
 
     uint64_t size = (n/8)+1;
 
-    for(uint64_t i = 0; i < size-1; i++){
+    for(uint64_t i = 0; i < (sqrt(n)/8) + 1; i++){
 
         if(primes[i]){
 
@@ -26,27 +26,38 @@ uint64_t priminatorv9(uint8_t *primes, uint64_t n, bool print){
 
                     prime = (i<<3)+p;
 
-                    if(prime<sqrt(n)+1){
+                    uint64_t max_bound = n/prime + 1;
 
-                        uint64_t max_bound = n/prime + 1;
+                    if(prime == 2){
 
-                        if(prime == 2){
+                        for(uint64_t k = prime; k < max_bound; k++){
+                            clearBit(&primes[k>>2],(k<<1)&7);
+                        }
 
-                            for(uint64_t k = prime; k < max_bound; k++){
+                    }else{
 
-                                clearBit(&primes[k>>2],(k<<1)&7);
-                            }
-                        }else{
-
-                            for(uint64_t k = prime; k < max_bound; k+=2){
-
-                                clearBit(&primes[(prime*k)>>3],(prime*k)&7);
-                            }
+                        for(uint64_t k = prime; k < max_bound; k+=2){
+                            clearBit(&primes[(prime*k)>>3],(prime*k)&7);
                         }
 
                     }
 
                     p_count++;
+                }
+            }
+        }
+    }
+
+    for(uint64_t i = (sqrt(n)/8)+2; i < size-1; i++){
+
+        if(primes[i]){
+
+            for(int p = 0; p < 8; p++){
+
+                if(checkBit(&primes[i],p)){
+
+                    p_count++;
+
                 }
             }
         }
@@ -80,6 +91,7 @@ uint64_t priminatorv9(uint8_t *primes, uint64_t n, bool print){
                         printf("%llu\n", prime);
                     }
                 }
+            }
         }
 
         if(primes[size-1]){
@@ -95,7 +107,6 @@ uint64_t priminatorv9(uint8_t *primes, uint64_t n, bool print){
                 }
             }
         }
-    }
     }
 
     return p_count;

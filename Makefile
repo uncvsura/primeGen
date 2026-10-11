@@ -11,7 +11,7 @@ else
 endif
 
 CC      = gcc
-CFLAGS  = -Iheader -O3 -Wall -Wextra -march=native
+CFLAGS  = -Iheader -O3 -Wall -Wextra -march=native 
 LDFLAGS =
 LDLIBS  = -lm
 
