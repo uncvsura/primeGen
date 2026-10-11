@@ -1,6 +1,22 @@
-CC      = gcc
-CFLAGS  = -Iheader -O3 -Wall -Wextra -Xpreprocessor -fopenmp -I$(shell brew --prefix libomp)/include
-LDFLAGS = -L$(shell brew --prefix libomp)/lib
+ifeq ($(OS),Windows_NT)
+    DETECTED_OS := Windows
+else
+    UNAME_S := $(shell uname -s)
+    ifeq ($(UNAME_S),Linux)
+        DETECTED_OS := Linux
+    endif
+    ifeq ($(UNAME_S),Darwin)
+        DETECTED_OS := macOS
+    endif
+endif
+
+CC      = gcc-16
+CFLAGS  = -Iheader -O3 -Wall -Wextra -Xpreprocessor -fopenmp
+ifeq ($(DETECTED_OS),macOS)
+	LDFLAGS = -L/opt/homebrew/opt/libomp/lib
+else
+	LDFLAGS = 
+endif
 LDLIBS  = -lm -lomp
 
 SIEVE_DEPS = algorithms/Sieves/SuraSieves/SuraSieveV5.c
