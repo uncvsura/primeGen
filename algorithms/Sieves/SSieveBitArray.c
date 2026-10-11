@@ -12,15 +12,19 @@ uint64_t priminatorv9(uint8_t *primes, uint64_t n, bool print){
 
     clearBit(&primes[0], 0); clearBit(&primes[0], 1);
 
-    uint64_t p_count = 0;
+    uint64_t p_count = 1;
 
     uint64_t size = (n/8)+1;
+
+    for(uint64_t i = 2; i < n/2 + 1; i++){
+        clearBit(&primes[i>>2],(i<<1)&7);
+    }
 
     for(uint64_t i = 0; i < size-1; i++){
 
         if(primes[i]){
 
-            for(int p = 0; p < 8; p++){
+            for(int p = 1; p < 8; p+=2){
 
                 if(checkBit(&primes[i],p)){
 
@@ -30,18 +34,8 @@ uint64_t priminatorv9(uint8_t *primes, uint64_t n, bool print){
 
                         uint64_t max_bound = n/prime + 1;
 
-                        if(prime == 2){
-
-                            for(uint64_t k = prime; k < max_bound; k++){
-
-                                clearBit(&primes[k>>2],(k<<1)&0x7);
-                            }
-                        }else{
-
-                            for(uint64_t k = prime; k < max_bound; k+=2){
-
-                                clearBit(&primes[(prime*k)>>3],(prime*k)&0x7);
-                            }
+                        for(uint64_t k = prime; k < max_bound; k+=2){
+                            clearBit(&primes[(prime*k)>>3],(prime*k)&7);
                         }
 
                     }
