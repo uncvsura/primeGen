@@ -33,11 +33,12 @@ endif
 SIEVE_DEPS = algorithms/Sieves/SuraSieves/SuraSieveV5.c
 GOLD_DEPS = $(SIEVE_DEPS) algorithms/Goldbach/pairFinder.c
 COMET_DEPS = $(GOLD_DEPS) algorithms/Goldbach/cometMaker.c
-BITSIEVE_DEPS = algorithms/Sieves/SSieveBitArray.c
+BITSIEVE_DEPS = algorithms/Sieves/BitSieves/SSieveBitArray.c
+BITSIEVEV2_DEPS = algorithms/Sieves/BitSieves/BitSieveV2.c
 
 all: bitSieve primeGen pairFind comet
 
-bitSieve: main/bitSieveMain.c $(BITSIEVE_DEPS)
+bitSieve: main/bitSieveMain.c $(BITSIEVEV2_DEPS)
 	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@ $(LDLIBS)
 
 primeGen: main/primeGenMain.c $(SIEVE_DEPS)

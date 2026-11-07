@@ -29,7 +29,7 @@ int main(void){
 
     printf("Calculating...\n");
     
-    p_count = priminatorv9(primes,num,print);
+    p_count = priminatorv10(primes,num,print);
 
     printf("\u03C0(%llu) = %llu\n", num, p_count);
 
