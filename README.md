@@ -1,4 +1,4 @@
-Open repo and run "make" in terminal to compile everything. Ignore warnings.\
+Open repo and run "make" in terminal to compile everything. Ignore warnings.
 
 Run "./bitSieve" to start efficient prime generating algorithm.
 
