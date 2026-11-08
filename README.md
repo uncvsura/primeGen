@@ -4,7 +4,7 @@ Run "./bitSieve" to start efficient prime generating algorithm.
 
 It will ask for a power of 10 as input and will generate all prime numbers up to this power of 10.
 
-For example: inputting 9 will generate all primes up to 10^9 = 1 billion.
+For example: inputting 9 will generate all primes up to 10^9 = 1 billion, and it will output pi(1 billion), which is the count of prime numbers under 1 billion.
 
 It will also ask whether you want to print the list of primes, 1 for yes, 0 for no. Be warned that printing takes a while.
 
