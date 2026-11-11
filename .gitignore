@@ -2,6 +2,6 @@ build/
 primeGen
 pairFind
 comet
-bitSieve
+# bitSieve
 test/
 .DS_Store
