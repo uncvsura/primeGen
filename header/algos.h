@@ -19,4 +19,6 @@ uint64_t priminatorv9(uint8_t *primes, uint64_t n, bool print);
 
 uint64_t priminatorv10(uint8_t *primes, uint64_t n, bool print);
 
+uint64_t priminatorv11(uint8_t *primes, uint64_t n, bool print);
+
 #endif
